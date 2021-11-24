@@ -1,0 +1,17 @@
+<canvas
+  #canvas
+  [height]="verticalResolution"
+  [width]="horizontalResolution"
+  [style.height.px]="verticalResolution * scale"
+  [style.width.px]="horizontalResolution * scale"
+  (mousedown)="down($event)"
+  (mousemove)="move($event)"
+  (mouseup)="up($event)"
+  (mouseleave)="leave($event)"
+  (mouseenter)="enter($event)"
+></canvas
+><br />
+<button (click)="read()">Read</button>
+<button (click)="clear()">Clear</button>
+<p *ngIf="error" style="color: red;">Read failed: {{ error }}</p>
+<p *ngIf="result">Your drawing was read as "{{ result }}"</p>
